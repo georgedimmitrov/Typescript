@@ -37,9 +37,7 @@ export class AccountManager {
    */
   activateNewUser(approver: Admin, userToApprove: User): ConfirmedUser {
     if (!approver.adminSince) throw "Approver is not an admin!";
-    let toConfirm = userToApprove as ConfirmedUser;
-    toConfirm.isActive = true;
-    return toConfirm;
+    return { ...userToApprove, isActive: true };
   }
 
   /**
